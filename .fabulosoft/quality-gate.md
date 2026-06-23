@@ -22,6 +22,6 @@ CompilaÃ§Ã£o com Ãªxito.
     0 Aviso(s)
     0 Erro(s)
 
-Tempo Decorrido 00:00:00.25
+Tempo Decorrido 00:00:00.10
 
 dotnet test: exit 0
