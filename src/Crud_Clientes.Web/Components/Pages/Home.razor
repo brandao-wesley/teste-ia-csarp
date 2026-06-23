@@ -1,0 +1,33 @@
+@page "/"
+@using Crud_Clientes.Application.Customers
+@inject CustomerService CustomerService
+
+<PageTitle>CRUD_clientes</PageTitle>
+<h1>CRUD_clientes</h1>
+<p>Interface Blazor criada pelo Fabulosoft Dev Agent para consumir os casos de uso da camada Application.</p>
+
+@if (_customers is null)
+{
+    <p>Carregando...</p>
+}
+else if (_customers.Count == 0)
+{
+    <p>Nenhum cliente cadastrado.</p>
+}
+else
+{
+    <ul>
+    @foreach (var item in _customers)
+    {
+        <li>@item.Name - @item.Email</li>
+    }
+    </ul>
+}
+
+@code {
+    private IReadOnlyList<CustomerDto>? _customers;
+    protected override async Task OnInitializedAsync()
+    {
+        _customers = await CustomerService.ListAsync();
+    }
+}
